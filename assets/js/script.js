@@ -74,23 +74,3 @@ enviarWhatsapp.addEventListener('click', () => {
   const url = `https://wa.me/573052794613?text=${encodeURIComponent(mensaje)}`;
   window.open(url, '_blank');
 });
-document.querySelectorAll(".youtube-video").forEach(el => {
-  const videoId = el.dataset.id;
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-  // Poner la imagen de fondo como thumbnail
-  el.style.backgroundImage = `url(${thumbnail})`;
-
-  // Reemplazar por el iframe al hacer clic
-  el.addEventListener("click", () => {
-    const iframe = document.createElement("iframe");
-    iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-    iframe.width = "100%";
-    iframe.height = "100%";
-    iframe.frameBorder = "0";
-    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-    iframe.allowFullscreen = true;
-    el.innerHTML = "";
-    el.appendChild(iframe);
-  });
-});
