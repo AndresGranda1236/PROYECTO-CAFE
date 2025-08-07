@@ -3,88 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Entre Surcos</title>
+  <title>Entre Surcos | Café con Propósito</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <header>
+
+  <!-- HEADER -->
+  <header class="site-header">
     <div class="logo">
-      <img src="img/logo_entre_surcos_transparente.png" alt="Entre Surcos Logo" />
+      <img src="img/logo_entre_surcos_transparente.png" alt="Logo Entre Surcos" />
     </div>
-    <nav>
+    <nav class="nav">
       <a href="#clips">Clips del Campo</a>
+      <a href="#compra">Compra</a>
     </nav>
+    
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
       <h1>Este café no solo se siembra,<br>se sueña.</h1>
+      <p>Conecta con el alma del campo colombiano.</p>
     </div>
   </section>
 
-  <!-- Clips del Campo -->
-  <section class="clips-section" id="clips">
-    <h2>Clips del Campo</h2>
-    <div class="videos">
-      <div class="video-item">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DM5-AESS19h/?igsh=bDMyY3ltdm41eGtx" data-instgrm-version="14"></blockquote>
-        <p>Reel desde el campo</p>
-      </div>
+  <!-- CLIPS DEL CAMPO -->
+  <section class="clips-section">
+  <h2>Clips del Campo</h2>
+  <div class="reels-grid">
+    <div class="reel-card" onclick="window.open('https://www.instagram.com/reel/DM5-AESS19h/?igsh=bDMyY3ltdm41eGtx', '_blank')">
+      <img src="img/Captura de pantalla 2025-08-05 220027.png" alt="Reel del campo">
+      <div class="reel-overlay">▶ Ver Reel</div>
     </div>
-  </section>
+    <!-- Puedes duplicar más reels aquí -->
+  </div>
+</section>
+<div class="redes-header">
+  <a href="https://www.instagram.com/entresurcoscafe" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://wa.me/573052794613" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
 
-  <script async src="//www.instagram.com/embed.js"></script>
 
-  <!-- Compra -->
+  <!-- MODAL PARA REEL -->
+  <div id="modal-reel" class="modal-reel">
+    <div class="modal-content">
+      <span id="cerrarModal">&times;</span>
+      <iframe id="reelFrame" width="400" height="600" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- COMPRA -->
   <section class="compra-section" id="compra">
+    <h2>Compra Nuestro Café</h2>
     <div class="productos-scroll">
-      <div class="producto" data-nombre="Bolsa de Café Amanecer" data-precio="39500">
-        <img src="img/ChatGPT Image 4 ago 2025, 09_23_31 a.m..png" alt="Bolsa de Café Amanecer" />
-        <div class="precio-hover">$39,500</div>
+      <div class="producto" data-nombre="Café Amanecer" data-precio="39500">
+        <img src="img/logocafe.png" alt="Café Amanecer" />
+        <p class="nombre">Café Entre Surcos de Origen </p>
+        
+                <p class="nombre">454gr</p>
+
+        <p class="precio">$39.500</p>
       </div>
-      <div class="producto" data-nombre="Café Entre Surcos" data-precio="45000">
-        <img src="img/logocafe.png" alt="Café Entre Surcos" />
-        <div class="precio-hover">$45,000</div>
-      </div>
-      <div class="producto" data-nombre="Café Especial" data-precio="50000">
+      <div class="producto" data-nombre="Café Especial" data-precio="47000">
         <img src="img/ChatGPT Image 4 ago 2025, 09_23_31 a.m..png" alt="Café Especial" />
-        <div class="precio-hover">$50,000</div>
+        <p class="nombre">Café Premium Primer Amanecer</p>
+                <p class="nombre"> 454gr</p>
+
+        <p class="precio">$47.000</p>
       </div>
-      <div class="producto" data-nombre="Café Orgánico" data-precio="47000">
-        <img src="img/logocafe.png" alt="Café Orgánico" />
-        <div class="precio-hover">$47,000</div>
-      </div>
-      <div class="producto" data-nombre="Café Premium" data-precio="52000">
-        <img src="img/ChatGPT Image 4 ago 2025, 09_23_31 a.m..png" alt="Café Premium" />
-        <div class="precio-hover">$52,000</div>
-      </div>
+      <!-- Puedes añadir más productos similares -->
     </div>
   </section>
 
-  <!-- Carrito flotante -->
+  <!-- ICONO CARRITO -->
   <div id="carrito-flotante">🛒</div>
 
-  <!-- Panel Carrito -->
+  <!-- PANEL CARRITO -->
   <aside class="panel-carrito" id="panel-carrito">
     <button class="cerrar-carrito" id="cerrar-carrito">✕</button>
     <h3>Tu Carrito</h3>
     <ul id="lista-carrito"></ul>
     <p>Total: <span id="total-precio">$0</span></p>
+
     <input type="text" id="nombreCliente" placeholder="Tu nombre" />
-    <input type="text" id="cedulaCliente" placeholder="Tu cédula" />
+    <input type="text" id="cedulaCliente" placeholder="Cédula" />
     <input type="text" id="direccionCliente" placeholder="Dirección" />
     <input type="text" id="telefonoCliente" placeholder="Teléfono" />
     <input type="text" id="ciudadCliente" placeholder="Ciudad" />
-    <button id="enviarWhatsapp">Enviar por WhatsApp</button>
+
+    <button id="enviarWhatsapp">Enviar pedido por WhatsApp</button>
   </aside>
 
+  <!-- FOOTER -->
   <footer>
-    <p>© 2025 Entre Surcos SAS | Tel: <a href="tel:+573226731446">322 673 1446</a></p>
+    <p>© 2025 Entre Surcos SAS | Tel: <a href="tel:+573226731446">+57 322 673 1446</a></p>
   </footer>
+<script src="assets/js/script.js"></script>
 
-  <script src="assets/js/script.js"></script>
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
 </body>
 </html>
