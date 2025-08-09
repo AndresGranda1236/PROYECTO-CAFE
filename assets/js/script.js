@@ -19,14 +19,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Añadir producto
-  document.querySelectorAll('.producto').forEach(prod => {
-    prod.addEventListener('click', () => {
-      const nombre = prod.dataset.nombre;
-      const precio = parseInt(prod.dataset.precio);
-      carrito.push({ nombre, precio });
-      actualizarCarrito();
-    });
+  // Añadir producto desde el panel principal
+document.querySelectorAll('.producto').forEach(prod => {
+  prod.addEventListener('click', () => {
+    const nombre = prod.dataset.nombre;
+    const precio = parseInt(prod.dataset.precio);
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
   });
+});
+
+// 🔹 NUEVO: Agregar productos desde el panel del carrito
+document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const prod = btn.closest('.producto-carrito');
+    const nombre = prod.dataset.nombre;
+    const precio = parseInt(prod.dataset.precio);
+    carrito.push({ nombre, precio });
+    actualizarCarrito();
+  });
+});
+
 
   // Actualizar HTML del carrito
   function actualizarCarrito() {
