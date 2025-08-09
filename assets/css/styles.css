@@ -617,3 +617,21 @@ footer a:hover {
 .agregar-carrito:hover {
   background-color: #a01818;
 }
+/* 🔹 Scroll interno del carrito */
+#panel-carrito {
+  height: 100vh; /* ocupa toda la altura de la pantalla */
+  overflow-y: auto; /* permite desplazarse */
+  -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+}
+
+/* 🔹 Barra de scroll más delgada */
+#panel-carrito::-webkit-scrollbar {
+  width: 6px;
+}
+#panel-carrito::-webkit-scrollbar-thumb {
+  background: var(--marron);
+  border-radius: 3px;
+}
+#panel-carrito::-webkit-scrollbar-track {
+  background: #f5e6d1;
+}
