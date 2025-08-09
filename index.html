@@ -20,7 +20,6 @@
   </div>
    
   <nav class="nav">
-  
     <div class="redes-header">
       <a href="https://www.instagram.com/entresurcoscafe" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
@@ -33,6 +32,7 @@
 </header>
 
 
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
@@ -42,32 +42,45 @@
   </section>
 
   <!-- CLIPS DEL CAMPO -->
-  <section class="clips-section">
-  <h2>Clips del Campo</h2>
-  <div class="reels-grid">
-    <div class="reel-card" onclick="window.open('https://www.instagram.com/reel/DM5-AESS19h/?igsh=bDMyY3ltdm41eGtx', '_blank')">
-      <img src="img/Captura de pantalla 2025-08-05 220027.png" alt="Reel del campo">
-      <div class="reel-overlay">▶ Ver Reel</div>
+ <<section class="reels-section">
+  <div class="reels-container">
+    
+    <!-- Reel 1 -->
+    <div class="reel" data-url="https://www.instagram.com/reel/DM5-AESS19h/?igsh=cXh6MG10NXc3OWZp">
+      <img src="img/reel 2.png" alt="Reel 1">
+      <div class="reel-info">
+        <p>Un día en el cafetal</p>
+      </div>
     </div>
-    <!-- Puedes duplicar más reels aquí -->
+
+    <!-- Reel 2 -->
+    <div class="reel" data-url="https://www.instagram.com/reel/DNESyKkSg-g/?igsh=eW5id2pzbXp1bGtx">
+      <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" alt="Reel 2">
+      <div class="reel-info">
+        <p>Cosecha de café</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-
-  <!-- MODAL PARA REEL -->
-  <div id="modal-reel" class="modal-reel">
-    <div class="modal-content">
-      <span id="cerrarModal">&times;</span>
-      <iframe id="reelFrame" width="400" height="600" frameborder="0" allowfullscreen></iframe>
-    </div>
+   
   </div>
+</section>
+
+<!-- Modal para reproducir el reel -->
+<div class="modal-reel" id="modalReel">
+  <span class="cerrar-modal" id="cerrarModal">&times;</span>
+  <video id="videoReel" controls autoplay></video>
+</div>
+
 
   <!-- COMPRA -->
   <section class="compra-section" id="compra">
     <h2>Compra Nuestro Café</h2>
     <div class="productos-scroll">
       <div class="producto" data-nombre="Café Entre Surcos de Origen 454gr" data-precio="39500">
-        <img src="img/logocafe.png" alt="Café Entre Surcos de Origen 454gr" />
+        <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" alt="Café Entre Surcos de Origen 454gr" />
         <p class="nombre">Café Entre Surcos de Origen</p>
         
                 <p class="nombre">454gr</p>
@@ -81,12 +94,22 @@
 
         <p class="precio">$47.000</p>
       </div>
+       <div class="producto" data-nombre="Café Premium Luna Nueva 454gr " data-precio="47000">
+        <img src="img/WhatsApp Image 2025-08-08 at 3.58.12 PM.jpeg" alt="Café Premium Luna Nueva" />
+        <p class="nombre">Café Premium Luna Nueva</p>
+                <p class="nombre"> 454gr</p>
+
+        <p class="precio">$47.000</p>
+      </div>
       <!-- Puedes añadir más productos similares -->
     </div>
   </section>
 
   <!-- ICONO CARRITO -->
-  <div id="carrito-flotante">🛒</div>
+<div id="carrito-flotante">
+  <i class="fas fa-shopping-bag"></i>
+</div>
+
 
   <!-- PANEL CARRITO -->
   <aside class="panel-carrito" id="panel-carrito">

@@ -22,30 +22,42 @@ body {
   line-height: 1.6;
 }
 
-/* HEADER */
+/* HEADER CON DEGRADADO ROJO */
 .site-header {
-  background-color: var(--verde-oscuro);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+ background: linear-gradient(to bottom, #d6a04a, rgba(214, 160, 74, 0.7) 60%, transparent);
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.site-header img {
-  height: 90px;
+/* LOGO */
+.site-header .logo img {
+  height: 55px;
 }
 
-.nav a {
+/* REDES SOCIALES */
+.redes-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.redes-header a {
   color: white;
-  margin-left: 2rem;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 1.3rem;
+  transition: transform 0.2s ease, color 0.3s ease;
 }
 
-.nav a:hover {
-  color: var(--dorado);
+.redes-header a:hover {
+  transform: scale(1.2);
+  color: #ffccbc;
 }
+
 
 /* HERO */
 .hero {
@@ -101,8 +113,9 @@ body {
 
 .reel-card {
   position: relative;
-  width: 260px;
-  height: 460px;
+  width: 100%;
+  max-width: 280px; /* tamaño máximo en PC */
+  aspect-ratio: 9/16; /* mantiene proporción de video */
   overflow: hidden;
   border-radius: 12px;
   background-color: black;
@@ -157,6 +170,24 @@ body {
   color: white;
   cursor: pointer;
 }
+
+/* --- Ajuste responsive para tablets y móviles --- */
+@media (max-width: 768px) {
+  .reels-grid {
+    gap: 0.8rem;
+  }
+
+  .reel-card {
+    max-width: 45%; /* en tablets 2 reels por fila */
+  }
+}
+
+@media (max-width: 480px) {
+  .reel-card {
+    max-width: 100%; /* en celular un reel por fila */
+  }
+}
+
 
 /* COMPRA */
 .compra-section {
@@ -217,15 +248,24 @@ body {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--naranja);
+  background: var(--verde-oscuro);
   padding: 14px;
   border-radius: 50%;
-  font-size: 24px;
-  color: white;
   cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  color: white;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, background 0.3s ease;
 }
+
+#carrito-flotante:hover {
+  background: #a04016; /* un tono más oscuro del naranja */
+  transform: scale(1.1);
+}
+
 
 /* ==== PANEL CARRITO MODERNO ==== */
 #panel-carrito {
@@ -414,5 +454,118 @@ footer a:hover {
 
   .producto-disponible p, .btn-agregar {
     width: 100%;
+  }
+}
+.reels-section {
+  padding: 3rem 1.5rem;
+  background: #fff;
+}
+
+.reels-container {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.reel {
+  background-color: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 320px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reel img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9/16;
+  object-fit: cover;
+}
+
+.reel-info {
+  padding: 0.8rem;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+  top: -60px;
+}
+
+.reel:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* Modal estilo Instagram */
+.modal-reel {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-reel video {
+  max-height: 90%;
+  max-width: 90%;
+  border-radius: 10px;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+.reels-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.reel {
+  position: relative;
+  width: 280px;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.reel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reel:hover {
+  transform: scale(1.05);
+}
+
+.reel-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .reel {
+    width: 90%;
+    height: 400px;
   }
 }

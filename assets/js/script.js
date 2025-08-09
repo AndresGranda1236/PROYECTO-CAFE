@@ -83,3 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Reels de Instagram ya se muestran automáticamente con el script embed.js
 });
+
+document.querySelectorAll('.reel').forEach(reel => {
+  reel.addEventListener('click', () => {
+    const url = reel.getAttribute('data-url');
+    window.open(url, '_blank');
+  });
+});
