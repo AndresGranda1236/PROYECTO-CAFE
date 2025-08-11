@@ -657,22 +657,22 @@ footer a:hover {
     filter: brightness(1) invert(2);
 }
 
-.producto button {
+.btn-ver-mas {
   background-color: #14532d; /* Verde oscuro */
   color: #fff; /* Texto blanco */
-  border: none;
+  text-decoration: none; /* Quitar subrayado */
   padding: 10px 18px;
-  border-radius: 25px; /* Bordes redondeados */
+  border-radius: 25px;
   font-size: 14px;
   font-weight: bold;
-  cursor: pointer;
+  display: inline-block;
   transition: all 0.3s ease;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.producto button:hover {
+.btn-ver-mas:hover {
   background-color: #d4af37; /* Dorado */
-  color: #14532d; /* Texto verde */
-  transform: scale(1.05); /* Ligeramente más grande */
+  color: #14532d;
+  transform: scale(1.05);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
