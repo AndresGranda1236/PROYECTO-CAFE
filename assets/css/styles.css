@@ -649,4 +649,11 @@ footer a:hover {
   height: 55px;
   filter: brightness(0) invert(1);
 }
+.titulo-imagen {
+  display: block;
+  max-width: 15%; /* se ajusta al ancho de la pantalla */
+  height: auto;   /* mantiene proporción */
+  margin: 0 auto 20px auto; /* centrado con margen inferior */
+    filter: brightness(1) invert(2);
+}
 
