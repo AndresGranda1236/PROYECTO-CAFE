@@ -635,3 +635,18 @@ footer a:hover {
 #panel-carrito::-webkit-scrollbar-track {
   background: #f5e6d1;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
+
+.logo-sello {
+  height: 55px;
+}
+
+.logo-letras {
+  height: 55px;
+  filter: brightness(0) invert(1);
+}
+
