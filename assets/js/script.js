@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Añadir producto
   // Añadir producto desde el panel principal
 document.querySelectorAll('.producto').forEach(prod => {
+  // Evitar que los productos del section #compra se agreguen al carrito
+  if (prod.closest('#compra')) return;
+
   prod.addEventListener('click', () => {
     const nombre = prod.dataset.nombre;
     const precio = parseInt(prod.dataset.precio);
