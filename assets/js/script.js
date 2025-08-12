@@ -106,3 +106,11 @@ document.querySelectorAll('.reel').forEach(reel => {
     window.open(url, '_blank');
   });
 });
+function scrollProductos(direction) {
+  const container = document.getElementById('productosScroll');
+  const scrollAmount = container.offsetWidth * 0.8; // Mueve casi una tarjeta
+  container.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+}

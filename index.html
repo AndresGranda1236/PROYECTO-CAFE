@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/entre_sur_or.css"> <!-- estilos solo para esta página -->
 
 </head>
@@ -44,10 +45,82 @@
       <p>Conecta con el alma del campo colombiano.</p>
     </div>
   </section>
+  <!-- COMPRA -->
+<section class="container my-5">
+  <div class="row g-4">
+    
+    <!-- Productos -->
+    <div class="col-lg-7 position-relative">
+      <button class="scroll-btn left" onclick="scrollProductos(-1)">&#10094;</button>
+      <div class="productos-scroll" id="productosScroll">
+        
+        <!-- Producto 1 -->
+        <div class="producto-item">
+          <div class="card text-center shadow-sm">
+            <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" class="card-img-top" alt="Café Entre Surcos de Origen">
+            <div class="card-body">
+              <h5 class="card-title">Café Entre Surcos de Origen</h5>
+              <p>454gr</p>
+              <p class="text-success fw-bold">$39.500</p>
+              <a href="EntreSurOr.html" class="btn btn-success">Ver más</a>
+            </div>
+          </div>
+        </div>
 
-  <!-- CLIPS DEL CAMPO -->
-   <section class="compra-section" id="compra">
- <h2>ENCUENTROS CON EL CAMPO</h2>
+        <!-- Producto 2 -->
+        <div class="producto-item">
+          <div class="card text-center shadow-sm">
+            <img src="img/WhatsApp Image 2025-08-10 at 6.25.41 PM.jpeg" class="card-img-top" alt="Café Premium Primer Amanecer">
+            <div class="card-body">
+              <h5 class="card-title">Café Premium Primer Amanecer</h5>
+              <p>454gr</p>
+              <p class="text-success fw-bold">$47.000</p>
+              <a href="primerAmanecer.html" class="btn btn-success">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="producto-item">
+          <div class="card text-center shadow-sm">
+            <img src="img/WhatsApp Image 2025-08-08 at 3.58.12 PM.jpeg" class="card-img-top" alt="Café Premium Luna Nueva">
+            <div class="card-body">
+              <h5 class="card-title">Café Premium Luna Nueva</h5>
+              <p>454gr</p>
+              <p class="text-success fw-bold">$47.000</p>
+              <a href="lunanueva.html" class="btn btn-success">Ver más</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <button class="scroll-btn right" onclick="scrollProductos(1)">&#10095;</button>
+    </div>
+
+    <!-- Proceso de fabricación -->
+    <div class="col-lg-5 d-flex">
+      <div class="p-4 bg-light rounded shadow-sm align-self-center">
+        <h3 class="mb-3 text-success">El arte detrás de nuestra bolsa</h3>
+        <p>
+          Cada bolsa de Café Entre Surcos es diseñada cuidadosamente para transmitir la esencia de nuestro café: tradición, calidad y pasión por la tierra.
+        </p>
+        <ul class="list-unstyled">
+          <li>🌸 <b>Diseño:</b> inspirado en la naturaleza cafetera colombiana.</li>
+          <li>🖨️ <b>Impresión:</b> tintas ecológicas y duraderas.</li>
+          <li>🔒 <b>Sellado:</b> hermético para conservar frescura.</li>
+          <li>📦 <b>Empaque:</b> con válvula de aroma para preservar el sabor.</li>
+        </ul>
+        <img src="img/ChatGPT Image 11 ago 2025, 10_45_23 p.m..png" alt="Proceso de fabricación" class="img-fluid rounded mt-3">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+ <h2></h2>
   
   <section class="reels-section">
     <div class="reels-container">
@@ -67,9 +140,11 @@
           <p>Cosecha de café</p>
         
         </div>
+        
       </div>
 
     </div>
+    <h3 class="text-center">REELS DE NUESTRO CAMPO </h2>
   </section>
 </section>
 
@@ -86,36 +161,7 @@
 
 
   <!-- COMPRA -->
-  <section class="compra-section" id="compra">
-    <h2>NUESTRO CAFÉ</h2>
-    <div class="productos-scroll">
-      <div class="producto" data-nombre="Café Entre Surcos de Origen 454gr" data-precio="39500">
-        <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" alt="Café Entre Surcos de Origen 454gr" />
-        <p class="nombre">Café Entre Surcos de Origen</p>
-        <p class="nombre">454gr</p>
-        <p class="precio">$39.500</p>
-       <a href="EntreSurOr.html" class="btn-ver-mas">Ver más</a>
-
-      </div>
-      <div class="producto" data-nombre="Café Premium Primer Amanecer 454gr " data-precio="47000">
-        <img src="img/WhatsApp Image 2025-08-10 at 6.25.41 PM.jpeg" alt="Café Premium Primer Amanecer" />
-        <p class="nombre">Café Premium Primer Amanecer</p>
-                <p class="nombre"> 454gr</p>
-
-        <p class="precio">$47.000</p>
-        <a href="producto1.html" class="btn-ver-mas">Ver más</a>
-      </div>
-       <div class="producto" data-nombre="Café Premium Luna Nueva 454gr " data-precio="47000">
-        <img src="img/WhatsApp Image 2025-08-08 at 3.58.12 PM.jpeg" alt="Café Premium Luna Nueva" />
-        <p class="nombre">Café Premium Luna Nueva</p>
-                <p class="nombre"> 454gr</p>
-
-        <p class="precio">$47.000</p>
-      <a href="producto1.html" class="btn-ver-mas">Ver más</a>
-      </div>
-      <!-- Puedes añadir más productos similares -->
-    </div>
-  </section>
+  
 
   <!-- ICONO CARRITO -->
 <div id="carrito-flotante">

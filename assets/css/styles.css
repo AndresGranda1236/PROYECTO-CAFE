@@ -676,3 +676,193 @@ footer a:hover {
   transform: scale(1.05);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
+.seccion-cafe {
+  background: linear-gradient(135deg, #fdfaf5, #f8f3ea);
+  padding: 50px 20px;
+  border-radius: 20px;
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.card-body h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #2f4f4f;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+}
+
+.card .btn {
+  background-color: #1b4d3e;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+.card .btn:hover {
+  background-color: #145039;
+}
+
+.proceso-cafe {
+  background: linear-gradient(135deg, #ffffff, #f5f5f0);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.proceso-cafe h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #1b4d3e;
+}
+
+.proceso-cafe ul {
+  padding: 0;
+  list-style: none;
+}
+
+.proceso-cafe li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.proceso-cafe li svg {
+  width: 18px;
+  height: 18px;
+  color: #1b4d3e;
+}
+/* Estilo normal para pantallas grandes */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* En pantallas pequeñas vuelve a scroll horizontal */
+@media (max-width: 768px) {
+  .productos-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+
+  .productos-grid::-webkit-scrollbar {
+    display: none; /* Oculta la barra */
+  }
+
+  .producto {
+    flex: 0 0 80%; /* Ancho de cada tarjeta */
+    scroll-snap-align: center;
+  }
+}
+/* Solo aplica en pantallas pequeñas */
+@media (max-width: 768px) {
+  .row.g-4.justify-content-center {
+    flex-wrap: nowrap; /* No se vayan a la siguiente línea */
+    overflow-x: auto; /* Scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Suavidad en móvil */
+    scroll-snap-type: x mandatory; /* Snap automático */
+    gap: 1rem; /* Separación entre tarjetas */
+    padding-bottom: 1rem; /* Espacio para el scroll */
+  }
+
+  .row.g-4.justify-content-center::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll */
+  }
+
+  .row.g-4.justify-content-center > .col-md-4 {
+    flex: 0 0 80%; /* Cada tarjeta ocupa el 80% del ancho */
+    scroll-snap-align: center; /* Centra al soltar */
+  }
+}
+/* Móvil: scroll horizontal */
+@media (max-width: 768px) {
+  .productos-scroll {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .productos-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .producto-item {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: center;
+  }
+
+  .scroll-btn {
+    display: block;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+  }
+
+  .scroll-btn.left {
+    left: -10px;
+  }
+
+  .scroll-btn.right {
+    right: -10px;
+  }
+}
+
+/* Escritorio: grid normal, sin flechas */
+@media (min-width: 769px) {
+  .productos-scroll {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .producto-item {
+    flex: none;
+    max-width: 100%;
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+}

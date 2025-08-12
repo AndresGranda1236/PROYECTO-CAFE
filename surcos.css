@@ -100,3 +100,22 @@ body {
     align-items: center;
   }
 }
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.btn-success {
+  background-color: #0b3d2e;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+.btn-success:hover {
+  background-color: #0d5f43;
+}
