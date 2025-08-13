@@ -47,10 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carrito.forEach((item, index) => {
       const li = document.createElement('li');
-      li.innerHTML = `
-        ${item.nombre} - $${item.precio.toLocaleString()}
-        <button class="btn-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">🗑</button>
-      `;
+     li.innerHTML = `
+  <div class="item-carrito">
+    <span class="nombre">${item.nombre} - $${item.precio.toLocaleString()}</span>
+    <button class="btn-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">🗑</button>
+  </div>
+`;
+
       listaCarrito.appendChild(li);
       total += item.precio;
     });
