@@ -53,7 +53,7 @@ document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn
       const li = document.createElement('li');
       li.innerHTML = `
         ${item.nombre} - $${item.precio.toLocaleString()}
-        <button class="boton-eliminar" onclick="eliminarProducto(${index})">❌</button>
+        <button class="boton-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">❌</button>
       `;
       listaCarrito.appendChild(li);
       total += item.precio;
@@ -93,7 +93,7 @@ document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn
     });
 
     mensaje += `\n💰 Total: ${totalPrecio.textContent}`;
-    const url = `https://wa.me/573052794613?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/573226731446?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   });
 

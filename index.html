@@ -31,7 +31,7 @@
       <a href="https://www.instagram.com/entresurcoscafe" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://wa.me/573052794613" target="_blank" aria-label="WhatsApp">
+      <a href="https://wa.me/573226731446" target="_blank" aria-label="WhatsApp">
         <i class="fab fa-whatsapp"></i>
       </a>
     </div>
@@ -189,52 +189,55 @@
 
   <!-- PANEL CARRITO -->
    
-  <aside class="panel-carrito" id="panel-carrito">
-    <button class="cerrar-carrito" id="cerrar-carrito">✕</button>
-    <h3>Tu Carrito</h3>
-    <div id="productos-disponibles">
-  <h3>Agrega más productos</h3>
+ <aside class="panel-carrito" id="panel-carrito">
+  <button class="cerrar-carrito" id="cerrar-carrito">✕</button>
+  <h3>Tu Carrito</h3>
 
-  <div class="producto-carrito" data-nombre="Café Entre Surcos de Origen 454gr" data-precio="39500">
-    <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" alt="Café Entre Surcos de Origen 454gr">
-    <div>
-      <p>Café Entre Surcos de Origen 454gr</p>
-      <span>$39,500</span>
-      <button class="agregar-carrito">Agregar</button>
+  <div id="productos-disponibles">
+    <h3>Agrega más productos</h3>
+
+    <div class="producto-carrito" data-nombre="Café Entre Surcos de Origen 454gr" data-precio="39500">
+      <img src="img/WhatsApp Image 2025-08-08 at 9.27.14 AM.jpeg" alt="Café Entre Surcos de Origen 454gr">
+      <div>
+        <p>Café Entre Surcos de Origen 454gr</p>
+        <span>$39,500</span>
+        <button class="agregar-carrito">Agregar</button>
+        
+      </div>
+    </div>
+
+    <div class="producto-carrito" data-nombre="Café Premium Primer Amanecer" data-precio="47000">
+      <img src="img/WhatsApp Image 2025-08-10 at 6.25.41 PM.jpeg" alt="Café Premium Primer Amanecer">
+      <div>
+        <p>Café Premium Primer Amanecer 454gr</p>
+        <span>$47,000</span>
+        <button class="agregar-carrito">Agregar</button>
+      </div>
+    </div>
+
+    <div class="producto-carrito" data-nombre="Café Premium Luna Nueva" data-precio="47000">
+      <img src="img/WhatsApp Image 2025-08-08 at 3.58.12 PM.jpeg" alt="Café Premium Luna Nueva">
+      <div>
+        <p>Café Premium Luna Nueva 454gr</p>
+        <span>$47,000 </span>
+        <button class="agregar-carrito">Agregar</button>
+      </div>
     </div>
   </div>
 
-  <div class="producto-carrito" data-nombre="Café Premium Primer Amanecer" data-precio="47000">
-    <img src="img/WhatsApp Image 2025-08-10 at 6.25.41 PM.jpeg" alt="Café Premium Primer Amanecer">
-    <div>
-      <p>Café Premium Primer Amanecer 454gr</p>
-      <span>$47,000</span>
-      <button class="agregar-carrito">Agregar</button>
-    </div>
-  </div>
+  <ul id="lista-carrito"></ul>
+  <p>Total: <span id="total-precio">$0</span></p>
 
-  <div class="producto-carrito" data-nombre="Café Premium Luna Nueva" data-precio="47000">
-    <img src="img/WhatsApp Image 2025-08-08 at 3.58.12 PM.jpeg" alt="Café Premium Luna Nueva">
-    <div>
-      <p>Café Premium Luna Nueva 454gr</p>
-      <span>$47,000 </span>
-      <button class="agregar-carrito">Agregar</button>
-    </div>
-  </div>
-</div>
-    <ul id="lista-carrito"></ul>
-    <p>Total: <span id="total-precio">$0</span></p>
+  <input type="text" id="nombreCliente" placeholder="Tu nombre" />
+  <input type="text" id="cedulaCliente" placeholder="Cédula" />
+  <input type="text" id="direccionCliente" placeholder="Dirección" />
+  <input type="text" id="telefonoCliente" placeholder="Teléfono" />
+  <input type="text" id="ciudadCliente" placeholder="Ciudad" />
 
-    <input type="text" id="nombreCliente" placeholder="Tu nombre" />
-    <input type="text" id="cedulaCliente" placeholder="Cédula" />
-    <input type="text" id="direccionCliente" placeholder="Dirección" />
-    <input type="text" id="telefonoCliente" placeholder="Teléfono" />
-    <input type="text" id="ciudadCliente" placeholder="Ciudad" />
+  <button id="enviarWhatsapp">Enviar pedido por WhatsApp</button>
+</aside
 
-    <button id="enviarWhatsapp">Enviar pedido por WhatsApp</button>
-  </aside>
-
-  <!-- FOOTER -->
+  <!--- FOOTER -->
   <footer>
     <p>© 2025 Entre Surcos SAS | Tel: <a href="tel:+573226731446">+57 322 673 1446</a></p>
   </footer>
