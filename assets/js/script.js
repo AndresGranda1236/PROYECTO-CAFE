@@ -18,31 +18,27 @@ document.addEventListener('DOMContentLoaded', () => {
     panelCarrito.classList.remove('visible');
   });
 
-  // Añadir producto
   // Añadir producto desde el panel principal
-document.querySelectorAll('.producto').forEach(prod => {
-  // Evitar que los productos del section #compra se agreguen al carrito
-  if (prod.closest('#compra')) return;
-
-  prod.addEventListener('click', () => {
-    const nombre = prod.dataset.nombre;
-    const precio = parseInt(prod.dataset.precio);
-    carrito.push({ nombre, precio });
-    actualizarCarrito();
+  document.querySelectorAll('.producto').forEach(prod => {
+    if (prod.closest('#compra')) return;
+    prod.addEventListener('click', () => {
+      const nombre = prod.dataset.nombre;
+      const precio = parseInt(prod.dataset.precio);
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    });
   });
-});
 
-// 🔹 NUEVO: Agregar productos desde el panel del carrito
-document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const prod = btn.closest('.producto-carrito');
-    const nombre = prod.dataset.nombre;
-    const precio = parseInt(prod.dataset.precio);
-    carrito.push({ nombre, precio });
-    actualizarCarrito();
+  // Añadir producto desde el panel del carrito
+  document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prod = btn.closest('.producto-carrito');
+      const nombre = prod.dataset.nombre;
+      const precio = parseInt(prod.dataset.precio);
+      carrito.push({ nombre, precio });
+      actualizarCarrito();
+    });
   });
-});
-
 
   // Actualizar HTML del carrito
   function actualizarCarrito() {
@@ -53,7 +49,7 @@ document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn
       const li = document.createElement('li');
       li.innerHTML = `
         ${item.nombre} - $${item.precio.toLocaleString()}
-        <button class="boton-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">❌</button>
+        <button class="btn-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">🗑</button>
       `;
       listaCarrito.appendChild(li);
       total += item.precio;
@@ -62,11 +58,20 @@ document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn
     totalPrecio.textContent = `$${total.toLocaleString()}`;
   }
 
-  // Eliminar producto
+  // Eliminar producto del carrito (lista)
   window.eliminarProducto = function(index) {
     carrito.splice(index, 1);
     actualizarCarrito();
-  }
+  };
+
+  // 🔹 Eliminar producto desde el panel de productos disponibles
+  window.eliminarProductoPanel = function(boton) {
+    const producto = boton.closest('.producto-carrito');
+    const nombre = producto.dataset.nombre;
+    carrito = carrito.filter(item => item.nombre !== nombre);
+    producto.remove();
+    actualizarCarrito();
+  };
 
   // Enviar a WhatsApp
   enviarWhatsapp.addEventListener('click', () => {
@@ -96,19 +101,20 @@ document.querySelectorAll('#productos-disponibles .agregar-carrito').forEach(btn
     const url = `https://wa.me/573226731446?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   });
-
-  // Reels de Instagram ya se muestran automáticamente con el script embed.js
 });
 
+// Click en reels para abrir en nueva ventana
 document.querySelectorAll('.reel').forEach(reel => {
   reel.addEventListener('click', () => {
     const url = reel.getAttribute('data-url');
     window.open(url, '_blank');
   });
 });
+
+// Scroll en productos
 function scrollProductos(direction) {
   const container = document.getElementById('productosScroll');
-  const scrollAmount = container.offsetWidth * 0.8; // Mueve casi una tarjeta
+  const scrollAmount = container.offsetWidth * 0.8;
   container.scrollBy({
     left: direction * scrollAmount,
     behavior: 'smooth'
