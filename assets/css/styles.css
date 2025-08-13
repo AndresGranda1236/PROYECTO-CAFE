@@ -866,3 +866,72 @@ footer a:hover {
     display: none;
   }
 }
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.reel-card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.reel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.reel-video-wrapper {
+  aspect-ratio: 9 / 16; /* Formato vertical tipo Instagram Reel */
+  background: #000;
+  overflow: hidden;
+}
+.reel-video-wrapper video {
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .reel-card {
+    margin-bottom: 20px;
+  }
+}
+.carousel-inner img {
+  aspect-ratio: 9 / 16; /* Proporción tipo Reel */
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 15px;
+  border-radius: 10px;
+}
+
+.carousel-caption h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+.reel-img {
+  height: 500px; /* Tamaño en escritorio */
+  max-width: 400px; /* Estilo vertical tipo Reel */
+  object-fit: cover;
+  border-radius: 15px;
+  border-color: #0e2c1d;
+}
+
+@media (max-width: 768px) {
+  .reel-img {
+    height: 350px; /* Más pequeño en móvil */
+    max-width: 200px;
+  }
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+
+.carousel-caption h5 {
+  font-size: 1rem;
+  color: white;
+  margin: 0;
+}
