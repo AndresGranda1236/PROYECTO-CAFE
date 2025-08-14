@@ -123,3 +123,17 @@ function scrollProductos(direction) {
     behavior: 'smooth'
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const banner = document.getElementById("banner-descuento");
+  const btnCerrar = document.getElementById("cerrar-banner");
+
+  // Cierra el banner manualmente
+  btnCerrar.addEventListener("click", () => {
+    banner.style.display = "none";
+  });
+
+  // Cierra automáticamente después de 6 segundos
+  setTimeout(() => {
+    banner.style.display = "none";
+  }, 6000);
+});
