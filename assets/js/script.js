@@ -135,5 +135,5 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cierra automáticamente después de 6 segundos
   setTimeout(() => {
     banner.style.display = "none";
-  }, 6000);
+  }, 2000);
 });
