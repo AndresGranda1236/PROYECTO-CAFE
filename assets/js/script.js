@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const listaCarrito = document.getElementById('lista-carrito');
   const totalPrecio = document.getElementById('total-precio');
   const enviarWhatsapp = document.getElementById('enviarWhatsapp');
+// Restringir campos numéricos
+["cedulaCliente", "telefonoCliente"].forEach(id => {
+  document.getElementById(id).addEventListener("input", function () {
+    this.value = this.value.replace(/\D/g, ""); // Solo dígitos
+  });
+});
 
   let carrito = [];
 
