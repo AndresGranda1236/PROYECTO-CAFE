@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 `;
 
+
       listaCarrito.appendChild(li);
       total += item.precio;
     });

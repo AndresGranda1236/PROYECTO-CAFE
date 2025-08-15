@@ -949,27 +949,33 @@ footer a:hover {
   justify-content: space-between;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap; /* Esto permite que en pantallas pequeñas baje el botón */
+  padding: 8px;
+  background: #fff;
+  border-radius: 6px;
+  margin-bottom: 6px;
 }
 
 .item-carrito .nombre {
   flex: 1;
   font-size: 14px;
+  color: #333;
+  word-break: break-word;
 }
 
 .btn-eliminar {
-  background-color: #dc3545; /* Rojo moderno */
-  color: white;
+  background: red;
   border: none;
-  border-radius: 6px;
+  color: white;
   padding: 6px 10px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
+  flex-shrink: 0;
 }
 
 .btn-eliminar:hover {
-  background-color: #a71d2a;
+  background: darkred;
 }
+
 .caption-mobile {
   background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
   padding: 5px 12px;
