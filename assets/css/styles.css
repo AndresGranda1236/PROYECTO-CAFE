@@ -953,10 +953,11 @@ footer a:hover {
   background: #fff;
   border-radius: 6px;
   margin-bottom: 6px;
+  flex-wrap: wrap; /* ✅ Permite que el texto y el botón bajen si no caben */
 }
 
 .item-carrito .nombre {
-  flex: 1;
+  flex: 1 1 auto;
   font-size: 14px;
   color: #333;
   word-break: break-word;
@@ -975,6 +976,7 @@ footer a:hover {
 .btn-eliminar:hover {
   background: darkred;
 }
+
 
 .caption-mobile {
   background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
@@ -1055,5 +1057,51 @@ footer a:hover {
     width: 20px;
     height: 20px;
     font-size: 12px;
+  }
+}
+.producto-en-carrito {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  margin-bottom: 8px;
+}
+
+.nombre-producto {
+  flex: 1 1 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.precio-producto {
+  font-size: 14px;
+  color: #444;
+}
+
+.btn-eliminar {
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.btn-eliminar:hover {
+  background: darkred;
+}
+
+/* En móviles, botón al 100% */
+@media (max-width: 480px) {
+  .btn-eliminar {
+    width: 100%;
+    text-align: center;
   }
 }
