@@ -1059,49 +1059,16 @@ footer a:hover {
     font-size: 12px;
   }
 }
-.producto-en-carrito {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
-  margin-bottom: 8px;
-}
-
-.nombre-producto {
-  flex: 1 1 100%;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.precio-producto {
-  font-size: 14px;
-  color: #444;
-}
-
-.btn-eliminar {
-  background: red;
+.btn-agotado {
+  background: #aaa;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  flex-shrink: 0;
+  cursor: not-allowed;
 }
 
-.btn-eliminar:hover {
-  background: darkred;
-}
-
-/* En móviles, botón al 100% */
-@media (max-width: 480px) {
-  .btn-eliminar {
-    width: 100%;
-    text-align: center;
-  }
+.producto-carrito.agotado img {
+  filter: grayscale(80%);
+  opacity: 0.7;
 }
