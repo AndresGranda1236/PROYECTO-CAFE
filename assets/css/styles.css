@@ -944,36 +944,76 @@ footer a:hover {
     margin-left: 15px;
   }
 }
+/* Estilo base del item en el carrito */
 .item-carrito {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  padding: 8px;
-  margin: 5px 0;
-  border-radius: 6px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 10px;
   border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  background: #fff;
 }
 
-.item-carrito .nombre {
-  flex: 1; 
-  font-size: 14px;
-  word-break: break-word;
+/* En pantallas grandes, fila horizontal */
+@media (min-width: 600px) {
+  .item-carrito {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
+/* Controles de cantidad */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cantidad-control button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+/* 🔴 Botón eliminar circular en móvil */
 .btn-eliminar {
-  background: #dc3545; /* rojo */
+  background: #e63946;
   color: white;
   border: none;
-  padding: 6px 10px;
-  margin-left: 10px;
-  border-radius: 6px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 6px;
+  margin-left: auto;
 }
 
 .btn-eliminar:hover {
-  background: #b02a37;
+  background: #c92a36;
+}
+
+/* En pantallas grandes que se vea más discreto */
+@media (min-width: 600px) {
+  .btn-eliminar {
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 6px 10px;
+    margin-top: 0;
+  }
 }
 
 /* 🔹 En móviles, forzar que se vea bien */
