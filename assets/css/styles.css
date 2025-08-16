@@ -1126,3 +1126,57 @@ footer a:hover {
   filter: grayscale(80%);
   opacity: 0.7;
 }
+/* 🔹 Ajustes generales del carrito */
+.item-carrito {
+  display: flex;
+  flex-direction: column; /* En móvil se acomoda en columna */
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: #fff;
+  width: 100%;
+}
+
+/* En escritorio se acomoda en fila */
+@media (min-width: 600px) {
+  .item-carrito {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* 🔹 Botón eliminar SIEMPRE visible */
+.btn-eliminar {
+  background: #e63946;
+  color: #fff;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Efecto hover (PC) */
+.btn-eliminar:hover {
+  background: #c92a36;
+}
+
+/* En PC lo hacemos más discreto */
+@media (min-width: 600px) {
+  .btn-eliminar {
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    font-size: 18px;
+    padding: 6px 12px;
+  }
+}
