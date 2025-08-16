@@ -948,34 +948,48 @@ footer a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
-  padding: 8px;
   background: #fff;
+  padding: 8px;
+  margin: 5px 0;
   border-radius: 6px;
-  margin-bottom: 6px;
-  flex-wrap: wrap; /* ✅ Permite que el texto y el botón bajen si no caben */
+  border: 1px solid #ddd;
 }
 
 .item-carrito .nombre {
-  flex: 1 1 auto;
+  flex: 1; 
   font-size: 14px;
-  color: #333;
   word-break: break-word;
 }
 
 .btn-eliminar {
-  background: red;
-  border: none;
+  background: #dc3545; /* rojo */
   color: white;
+  border: none;
   padding: 6px 10px;
-  border-radius: 4px;
+  margin-left: 10px;
+  border-radius: 6px;
   cursor: pointer;
-  flex-shrink: 0;
+  font-size: 16px;
 }
 
 .btn-eliminar:hover {
-  background: darkred;
+  background: #b02a37;
 }
+
+/* 🔹 En móviles, forzar que se vea bien */
+@media (max-width: 768px) {
+  .item-carrito {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .btn-eliminar {
+    margin-top: 6px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 
 .caption-mobile {
@@ -1071,27 +1085,4 @@ footer a:hover {
 .producto-carrito.agotado img {
   filter: grayscale(80%);
   opacity: 0.7;
-}
-.cantidad-control {
-  display: inline-flex;
-  align-items: center;
-  margin: 5px 0;
-}
-
-.cantidad-control button {
-  background: #198754; /* verde bootstrap */
-  color: white;
-  border: none;
-  padding: 1px 8px;
-  font-size: 18px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.cantidad-control input {
-  width: 100px;
-  text-align: center;
-  border: 1px solid #ccc;
-  margin: 0 5px;
-  border-radius: 4px;
 }

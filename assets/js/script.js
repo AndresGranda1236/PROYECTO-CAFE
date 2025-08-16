@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const listaCarrito = document.getElementById('lista-carrito');
   const totalPrecio = document.getElementById('total-precio');
   const enviarWhatsapp = document.getElementById('enviarWhatsapp');
-// Restringir campos numéricos
-["cedulaCliente", "telefonoCliente"].forEach(id => {
-  document.getElementById(id).addEventListener("input", function () {
-    this.value = this.value.replace(/\D/g, ""); // Solo dígitos
+
+  // Restringir campos numéricos
+  ["cedulaCliente", "telefonoCliente"].forEach(id => {
+    document.getElementById(id).addEventListener("input", function () {
+      this.value = this.value.replace(/\D/g, ""); // Solo dígitos
+    });
   });
-});
 
   let carrito = [];
 
@@ -30,7 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     prod.addEventListener('click', () => {
       const nombre = prod.dataset.nombre;
       const precio = parseInt(prod.dataset.precio);
-      carrito.push({ nombre, precio });
+
+      // 🔹 Verificar si ya existe
+      let existente = carrito.find(item => item.nombre === nombre);
+      if (existente) {
+        existente.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
       actualizarCarrito();
     });
   });
@@ -41,7 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const prod = btn.closest('.producto-carrito');
       const nombre = prod.dataset.nombre;
       const precio = parseInt(prod.dataset.precio);
-      carrito.push({ nombre, precio });
+
+      let existente = carrito.find(item => item.nombre === nombre);
+      if (existente) {
+        existente.cantidad++;
+      } else {
+        carrito.push({ nombre, precio, cantidad: 1 });
+      }
       actualizarCarrito();
     });
   });
@@ -52,21 +66,41 @@ document.addEventListener('DOMContentLoaded', () => {
     let total = 0;
 
     carrito.forEach((item, index) => {
+      const subtotal = item.precio * item.cantidad;
+
       const li = document.createElement('li');
-     li.innerHTML = `
-  <div class="item-carrito">
-    <span class="nombre">${item.nombre} - $${item.precio.toLocaleString()}</span>
-    <button class="btn-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">🗑</button>
-  </div>
-`;
+      li.innerHTML = `
+        <div class="item-carrito">
+          <span class="nombre">${item.nombre} - $${item.precio.toLocaleString()}</span>
+          
+          <div class="cantidad-control">
+            <button onclick="cambiarCantidad(${index}, -1)">−</button>
+            <span>${item.cantidad}</span>
+            <button onclick="cambiarCantidad(${index}, 1)">+</button>
+          </div>
 
-
+          <button class="btn-eliminar" onclick="eliminarProducto(${index})" aria-label="Eliminar">🗑</button>
+        </div>
+        <div class="subtotal">Subtotal: $${subtotal.toLocaleString()}</div>
+      `;
       listaCarrito.appendChild(li);
-      total += item.precio;
+
+      total += subtotal;
     });
 
     totalPrecio.textContent = `$${total.toLocaleString()}`;
   }
+
+  // Cambiar cantidad (+ / -)
+  window.cambiarCantidad = function(index, delta) {
+    carrito[index].cantidad += delta;
+
+    if (carrito[index].cantidad <= 0) {
+      carrito.splice(index, 1); // Eliminar si llega a 0
+    }
+
+    actualizarCarrito();
+  };
 
   // Eliminar producto del carrito (lista)
   window.eliminarProducto = function(index) {
@@ -84,45 +118,43 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Enviar a WhatsApp
-  // Enviar a WhatsApp
-enviarWhatsapp.addEventListener('click', () => {
-  const nombreCliente = document.getElementById('nombreCliente').value;
-  const cedulaCliente = document.getElementById('cedulaCliente').value;
-  const direccionCliente = document.getElementById('direccionCliente').value;
-  const telefonoCliente = document.getElementById('telefonoCliente').value;
-  const ciudadCliente = document.getElementById('ciudadCliente').value;
+  enviarWhatsapp.addEventListener('click', () => {
+    const nombreCliente = document.getElementById('nombreCliente').value;
+    const cedulaCliente = document.getElementById('cedulaCliente').value;
+    const direccionCliente = document.getElementById('direccionCliente').value;
+    const telefonoCliente = document.getElementById('telefonoCliente').value;
+    const ciudadCliente = document.getElementById('ciudadCliente').value;
 
-  if (!nombreCliente || !cedulaCliente || !direccionCliente || !telefonoCliente || !ciudadCliente) {
-    alert("Por favor, completa todos los campos.");
-    return;
-  }
+    if (!nombreCliente || !cedulaCliente || !direccionCliente || !telefonoCliente || !ciudadCliente) {
+      alert("Por favor, completa todos los campos.");
+      return;
+    }
 
-  if (carrito.length === 0) {
-    alert("Tu carrito está vacío.");
-    return;
-  }
+    if (carrito.length === 0) {
+      alert("Tu carrito está vacío.");
+      return;
+    }
 
-  let mensaje = `🛒 Pedido de ${nombreCliente} (Cédula: ${cedulaCliente})\n📍 Dirección: ${direccionCliente}\n📞 Tel: ${telefonoCliente}\n🌆 Ciudad: ${ciudadCliente}\n\n`;
+    let mensaje = `🛒 Pedido de ${nombreCliente} (Cédula: ${cedulaCliente})\n📍 Dirección: ${direccionCliente}\n📞 Tel: ${telefonoCliente}\n🌆 Ciudad: ${ciudadCliente}\n\n`;
 
-  carrito.forEach(item => {
-    mensaje += `• ${item.nombre}: $${item.precio.toLocaleString()}\n`;
+    carrito.forEach(item => {
+      mensaje += `• ${item.nombre} (x${item.cantidad}): $${(item.precio * item.cantidad).toLocaleString()}\n`;
+    });
+
+    mensaje += `\n💰 Total: ${totalPrecio.textContent}`;
+
+    const numero = "573226731446"; // Número de WhatsApp
+    let url;
+
+    // Detectar si es móvil o escritorio
+    if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+      url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+    } else {
+      url = `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
+    }
+
+    window.open(url, '_blank');
   });
-
-  mensaje += `\n💰 Total: ${totalPrecio.textContent}`;
-
-  const numero = "573226731446"; // Número de WhatsApp
-  let url;
-
-  // Detectar si es móvil o escritorio
-  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
-    url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-  } else {
-    url = `https://web.whatsapp.com/send?phone=${numero}&text=${encodeURIComponent(mensaje)}`;
-  }
-
-  window.open(url, '_blank');
-});
-
 });
 
 // Click en reels para abrir en nueva ventana
@@ -142,6 +174,7 @@ function scrollProductos(direction) {
     behavior: 'smooth'
   });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
   const banner = document.getElementById("banner-descuento");
   const btnCerrar = document.getElementById("cerrar-banner");
