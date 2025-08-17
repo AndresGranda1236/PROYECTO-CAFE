@@ -22,6 +22,7 @@
  <!-- Header con redes sociales -->
 <header class="site-header">
   <div class="logo">
+    
     <img src="img/logo_entre_surcos_transparente.png" alt="Logo sello Entre Surcos" class="logo-sello" />
     <img src="img/logo_entre_surcos_letras.png" alt="Logo letras Entre Surcos" class="logo-letras" />
   </div>
@@ -43,12 +44,20 @@
 
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Este café no solo se siembra,<br>se sueña.</h1>
-      <p>Conecta con el alma del campo colombiano.</p>
-    </div>
-  </section>
+<section class="hero">
+  <picture>
+    <!-- Imagen para móvil -->
+    <source media="(max-width: 768px)" srcset="img/hero2.png">
+    <!-- Imagen para escritorio -->
+    <img src="img/PC.png" alt="Entre Surcos Café" class="hero-img">
+  </picture>
+
+  <div class="hero-text">
+    <h1>Entre Surcos Café</h1>
+    <p>Café artesanal de origen</p>
+  </div>
+</section>
+
   <!-- COMPRA -->
 <section class="container my-5">
   <div class="row g-4">
